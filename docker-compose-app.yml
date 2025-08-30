@@ -1,0 +1,39 @@
+services:
+  jiraproxy:
+    image: jiraproxy:latest
+    container_name: jiraproxy
+    build:
+      context: ./
+      dockerfile: Dockerfile_BE
+      args:
+        SERVICE_PATH: backend/web-proxy
+    ports:
+      - 8501:8501
+    restart: unless-stopped
+  next-jira:
+    build:
+      context: ./
+      dockerfile: Dockerfile_FE
+      args:
+        SERVICE_PATH: frontend/jira
+        SERVICE_PORT: 5003
+        NEXT_PRIVATE_LOCAL_WEBPACK: true
+        #NEXT_PUBLIC_JIRA_DOMAIN: 'https://your-jira-instance.atlassian.net'
+        #NEXT_PUBLIC_JIRA_API_TOKEN: Y3NhYmFqYWthYm-------YOUR-API-KEY------SDA9REUzRjY4N0M=
+        #NEXT_PUBLIC_JIRA_PROJECT_KEY: 'yourjiraprojectkey'
+        #NEXT_PUBLIC_JIRA_EMAIL: 'youremail'
+    container_name: next-jira
+    ports:
+      - 5003:5003
+    environment:
+      - DOCKER_HOST_IP=host.docker.internal
+    restart: unless-stopped
+  ollama:
+    container_name: ollama
+    build:
+      context: ./
+      dockerfile: Dockerfile_OLLAMA
+      args:
+        LLM_MODEL: 'deepseek-r1:1.5b'
+    ports:
+      - 11434:11434

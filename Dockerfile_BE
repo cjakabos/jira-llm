@@ -1,0 +1,23 @@
+FROM docker.io/library/maven:3-eclipse-temurin-21 AS builder
+ARG SERVICE_PATH
+
+COPY ./$SERVICE_PATH/src /home/root/src
+COPY ./$SERVICE_PATH/pom.xml /home/root/pom.xml
+
+ARG DOCKER_HOST_IP
+ENV DOCKER_HOST_IP=host.docker.internal
+
+WORKDIR /home/root
+RUN mvn package
+
+FROM eclipse-temurin:21-jdk-alpine AS run
+ARG SERVICE_PATH
+
+RUN mkdir -p /home/run
+WORKDIR /home/run
+COPY --from=builder /home/root/target/*-SNAPSHOT.jar /home/run/app.jar
+
+ARG DOCKER_HOST_IP
+ENV DOCKER_HOST_IP=host.docker.internal
+
+ENTRYPOINT ["java", "-jar", "/home/run/app.jar"]
