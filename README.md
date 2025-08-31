@@ -9,22 +9,22 @@
   <a href="https://ollama.com/">
     <img src="https://img.shields.io/badge/LLM-Ollama-green?logo=opensourceinitiative" alt="Ollama">
   </a>
-  <a href="https://github.com/YOUR_USERNAME/jira-llm/blob/main/LICENSE">
+  <a href="https://github.com/cjakabos/jira-llm/blob/main/LICENSE">
     <img src="https://img.shields.io/github/license/cjakabos/jira-llm" alt="License">
   </a>
-  <a href="https://github.com/YOUR_USERNAME/jira-llm/commits/main">
+  <a href="https://github.com/cjakabos/jira-llm/commits/main">
     <img src="https://img.shields.io/github/last-commit/cjakabos/jira-llm" alt="Last Commit">
   </a>
-  <a href="https://github.com/YOUR_USERNAME/jira-llm/pulls">
+  <a href="https://github.com/cjakabos/jira-llm/pulls">
     <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="PRs Welcome">
   </a>
 </p>
 
 <p align="center">
-  <a href="https://github.com/YOUR_USERNAME/jira-llm/stargazers">
+  <a href="https://github.com/cjakabos/jira-llm/stargazers">
     <img src="https://img.shields.io/github/stars/cjakabos/jira-llm?style=social" alt="Stars">
   </a>
-  <a href="https://github.com/YOUR_USERNAME/jira-llm/network/members">
+  <a href="https://github.com/cjakabos/jira-llm/network/members">
     <img src="https://img.shields.io/github/forks/cjakabos/jira-llm?style=social" alt="Forks">
   </a>
 </p>
