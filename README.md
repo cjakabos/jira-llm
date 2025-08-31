@@ -95,8 +95,8 @@ sudo usermod -aG docker $USER
 ```
 #### Windows:
 - Download Docker Desktop from [docker.com](https://www.docker.com/products/docker-desktop)
-- ✅ Connected to the same network as your Docker host
-- 
+- Connected to the same network as your Docker host
+
 ## 2. **Get a Jira API Key**
   [Sign up for Jira](https://www.atlassian.com/software/jira/free)
 
