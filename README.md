@@ -78,10 +78,29 @@
 Minimum system requirements: 15GB free disk space, 16GB RAM. Scale it accordingly, when choosing a larger LLM model.
 
 ## 1. **Install Docker**
-
+Install Docker on your system:
+#### macOS:
+- Download Docker Desktop from [docker.com](https://www.docker.com/products/docker-desktop)
+- Or install via Homebrew:
+```bash
+brew install docker
+brew install docker-compose
+```
+#### Linux (Ubuntu/Debian):
+```bash
+sudo apt install docker.io docker-compose
+sudo systemctl start docker
+sudo systemctl enable docker
+sudo usermod -aG docker $USER
+```
+#### Windows:
+- Download Docker Desktop from [docker.com](https://www.docker.com/products/docker-desktop)
+- ✅ Connected to the same network as your Docker host
+- 
 ## 2. **Get a Jira API Key**
-    - [Sign up for Jira](https://www.atlassian.com/software/jira/free)
-    - [Generate an API token](https://support.atlassian.com/atlassian-account/docs/manage-api-tokens-for-your-atlassian-account/)
+  [Sign up for Jira](https://www.atlassian.com/software/jira/free)
+
+  [Generate an API token](https://support.atlassian.com/atlassian-account/docs/manage-api-tokens-for-your-atlassian-account/)
 
 ## 3. **Configure Jira in [docker-compose-app.yml](./docker-compose-app.yml)**
 
