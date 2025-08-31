@@ -1,8 +1,33 @@
 # Jira LLM – AI-Augmented Jira ticket management for development teams and PMs
+<p align="center">
+  <a href="https://www.docker.com/">
+    <img src="https://img.shields.io/badge/Docker-ready-blue?logo=docker" alt="Docker Ready">
+  </a>
+  <a href="https://www.atlassian.com/software/jira">
+    <img src="https://img.shields.io/badge/Jira-integrated-0052CC?logo=jira" alt="Jira Integrated">
+  </a>
+  <a href="https://ollama.com/">
+    <img src="https://img.shields.io/badge/LLM-Ollama-green?logo=opensourceinitiative" alt="Ollama">
+  </a>
+  <a href="https://github.com/YOUR_USERNAME/jira-llm/blob/main/LICENSE">
+    <img src="https://img.shields.io/github/license/cjakabos/jira-llm" alt="License">
+  </a>
+  <a href="https://github.com/YOUR_USERNAME/jira-llm/commits/main">
+    <img src="https://img.shields.io/github/last-commit/cjakabos/jira-llm" alt="Last Commit">
+  </a>
+  <a href="https://github.com/YOUR_USERNAME/jira-llm/pulls">
+    <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="PRs Welcome">
+  </a>
+</p>
 
-[![Docker](https://img.shields.io/badge/Docker-ready-blue.svg)](https://www.docker.com/)
-[![Jira](https://img.shields.io/badge/Jira-integrated-0052CC.svg)](https://www.atlassian.com/software/jira)
-[![LLM](https://img.shields.io/badge/LLM-Ollama-green.svg)](https://ollama.com/)
+<p align="center">
+  <a href="https://github.com/YOUR_USERNAME/jira-llm/stargazers">
+    <img src="https://img.shields.io/github/stars/cjakabos/jira-llm?style=social" alt="Stars">
+  </a>
+  <a href="https://github.com/YOUR_USERNAME/jira-llm/network/members">
+    <img src="https://img.shields.io/github/forks/cjakabos/jira-llm?style=social" alt="Forks">
+  </a>
+</p>
 
 > An AI-augmented jira ticket management system powered by a **locally hosted LLM** (via [Ollama](https://ollama.com/)), **micro-frontend architecture**, and **Jira API integration**.  
 > Showcase project from my [portfolio repository](https://github.com/cjakabos/portfolio-web).
@@ -17,11 +42,11 @@
 
 - **Locally Hosted LLM with Ollama**  
   Deploy and interact with a private LLM (e.g., Deepseek R1) with configurable model setup. Maintain **data privacy** while leveraging AI insights.  
-  👉 [LLM integration details](#)
+  👉 [LLM integration details](#4-configure-ollama-model)
 
 - **Seamless Jira API Integration**  
   Connect securely to Jira using proxy APIs to bypass CORS restrictions.  
-  👉 [API integration details](#)
+  👉 [API integration details](#3-configure-jira-in-docker-compose-appymldocker-compose-appyml)
 
 - **Core Ticket Management**
     - Create, update, delete, and list Jira tickets
@@ -33,28 +58,32 @@
 
 ## 🎥 Demo
 
-- Create/list/update/delete tickets  
+- Create/list/update/delete tickets and turn on AI mode
   ![](examples/0.png)
 
-- Refine tickets with AI suggestions  
+- Refine tickets with AI suggestions: choose chat with the ticket and/or including parent tickets
   ![](examples/5.png)  
+- Edit suggestions before update
   ![](examples/6.png)
 
-- Batch-generate subtasks for higher-level tickets  
-  ![](examples/1.png)  
+- Batch-generate subtasks for higher-level tickets: choose how many tickets to generate
+  ![](examples/1.png) 
+  and select/edit the proposals
   ![](examples/2.png)
 
 ---
 
 ## 🚀 Quick Start
 
-1. **Install Docker**
+Minimum system requirements: 15GB free disk space, 16GB RAM. Scale it accordingly, when choosing a larger LLM model.
 
-2. **Get a Jira API Key**
+## 1. **Install Docker**
+
+## 2. **Get a Jira API Key**
     - [Sign up for Jira](https://www.atlassian.com/software/jira/free)
     - [Generate an API token](https://support.atlassian.com/atlassian-account/docs/manage-api-tokens-for-your-atlassian-account/)
 
-3. **Configure Jira in [docker-compose-app.yml](./docker-compose-app.yml)**
+## 3. **Configure Jira in [docker-compose-app.yml](./docker-compose-app.yml)**
 
 ```yaml
    #NEXT_PUBLIC_JIRA_DOMAIN: 'https://your-jira-instance.atlassian.net'
@@ -64,7 +93,7 @@
 
 ```
 
-3. **Configure Ollama model**
+## 4. **Configure Ollama model**
 
 Note: configure Ollama model to use with LLM_MODEL in [docker-compose-app.yml](./docker-compose-app.yml), in this example it was deepseek-r1 with 1.5B parameter ([for LLM_MODEL naming convention see Ollama](https://ollama.com/library/deepseek-r1:1.5b)), good enough for local testing purposes.
 ```dockerfile
@@ -78,7 +107,7 @@ Note: configure Ollama model to use with LLM_MODEL in [docker-compose-app.yml](.
     ports:
       - 11434:11434
 ```
-4. **Run the app**
+## 5. **Run the app**
 
 this will setup the Jira proxy, Jira frontend and LLM backend:
 ```bash
