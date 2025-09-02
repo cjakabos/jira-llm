@@ -109,12 +109,13 @@ sudo usermod -aG docker $USER
    #NEXT_PUBLIC_JIRA_API_TOKEN: 'YOUR-API-KEY'
    #NEXT_PUBLIC_JIRA_PROJECT_KEY: 'YOURPROJECTKEY' # e.g. SCRUM
    #NEXT_PUBLIC_JIRA_EMAIL: 'youremail@example.com'
+   #NEXT_PUBLIC_LLM_MODEL = 'deepseek-r1:1.5b'
 
 ```
 
 ## 4. **Configure Ollama model**
 
-Note: configure Ollama model to use with LLM_MODEL in [docker-compose-app.yml](./docker-compose-app.yml), in this example it was deepseek-r1 with 1.5B parameter ([for LLM_MODEL naming convention see Ollama](https://ollama.com/library/deepseek-r1:1.5b)), good enough for local testing purposes.
+Note: configure Ollama model to use with NEXT_PUBLIC_LLM_MODEL in [docker-compose-app.yml](./docker-compose-app.yml), in this example it was deepseek-r1 with 1.5B parameter ([for NEXT_PUBLIC_LLM_MODEL naming convention see Ollama](https://ollama.com/library/deepseek-r1:1.5b)), good enough for local testing purposes.
 ```dockerfile
   ollama:
     container_name: ollama
@@ -122,7 +123,7 @@ Note: configure Ollama model to use with LLM_MODEL in [docker-compose-app.yml](.
       context: ./
       dockerfile: Dockerfile_OLLAMA
       args:
-        LLM_MODEL: 'deepseek-r1:1.5b'
+        NEXT_PUBLIC_LLM_MODEL: 'deepseek-r1:1.5b'
     ports:
       - 11434:11434
 ```
