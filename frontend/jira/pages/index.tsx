@@ -112,7 +112,7 @@ export default function Index(this: any) {
 
     function getTickets() {
         const postData = {
-            webDomain: process.env.NEXT_PUBLIC_JIRA_DOMAIN + "/rest/api/latest/search?jql=project=" + process.env.NEXT_PUBLIC_JIRA_PROJECT_KEY + "&maxResults=1000",
+            webDomain: process.env.NEXT_PUBLIC_JIRA_DOMAIN + "/rest/api/latest/search/jql?jql=project=" + process.env.NEXT_PUBLIC_JIRA_PROJECT_KEY + "&maxResults=1000&fields=key,summary,description,issuetype,parent",
             webApiKey: "Basic " + Buffer.from(`${process.env.NEXT_PUBLIC_JIRA_EMAIL}:${process.env.NEXT_PUBLIC_JIRA_API_TOKEN || process.env.NEXT_PUBLIC_JIRA_API_TOKEN_LOCAL}`).toString("base64"),
         };
 
